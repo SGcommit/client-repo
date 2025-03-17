@@ -2,21 +2,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
+  <meta charset="UTF-8">
+  <title>D&D Encounter Dashboard</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <div id="gui-div">
-        <h1>Enter Enemy Name</h1>
-        <input type="text" id="txt-field">
-        <input type="button" id="btn" value="Load Card">
-        <p id="result-txt"></p>
-    </div>
-    <div></div>     <!-- spacer -->
-    <div id="enemy-div">
-    </div>
-    <script src="./assets/js/api.js"></script>
+  <div id="dashboard">
+    <h1>Build an Encounter</h1>
+    <form id="encounter-form">
+      <input type="number" name="partyLevel" placeholder="Party Level" required>
+      <input type="text" name="environment" placeholder="Environment" required>
+      <input type="text" name="enemyType" placeholder="Enemy Type" required>
+      <button type="submit">Build Encounter</button>
+    </form>
+    <div id="encounter-results"></div>
+  </div>
+  <script src="assets/js/dashboard.js"></script>
 </body>
 </html>
