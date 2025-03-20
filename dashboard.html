@@ -1,22 +1,33 @@
-<!-- dashboard.html: User dashboard for access to features -->
+<!-- dashboard.html: Updated user dashboard for generating encounters -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard - Generate Encounter</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
     <div id="gui-div">
-        <h1>Enter Enemy Name</h1>
-        <input type="text" id="txt-field">
-        <input type="button" id="btn" value="Load Card">
+        <h1>Generate Encounter</h1>
+        <label for="party-level">Party Level:</label>
+        <input type="number" id="party-level" placeholder="Enter party level" required>
+        <br>
+        <label for="environment">Environment:</label>
+        <input type="text" id="environment" placeholder="e.g., forest, dungeon" required>
+        <br>
+        <label for="enemy-type">Enemy Type:</label>
+        <input type="text" id="enemy-type" placeholder="e.g., undead, dragons" required>
+        <br>
+        <input type="button" id="generate-btn" value="Generate Encounter">
         <p id="result-txt"></p>
     </div>
-    <div></div>     <!-- spacer -->
-    <div id="enemy-div">
-    </div>
+
+    <div id="enemy-div"></div>
+
+    <!-- Logout Button -->
+    <button id="logoutBtn">Logout</button>
+
     <script src="./assets/js/api.js"></script>
 </body>
 </html>

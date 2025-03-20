@@ -27,28 +27,31 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
   
 // Handle Login
 document.getElementById('login-form').addEventListener('submit', async (e) => {
-e.preventDefault();
+    e.preventDefault();
 
-// Gather login inputs based on what the back-end expects
-const email = document.getElementById('login-email').value;
-const password = document.getElementById('login-password').value;
+    // Gather login inputs
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
 
-try {
-    const response = await fetch(`${SERVER_PATH}/auth/login`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password })
-    });
-    const data = await response.json();
+    try {
+        const response = await fetch(`${SERVER_PATH}/auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
 
-    // Display feedback from the server
-    document.getElementById('message').innerText = data.message || data.error;
+        const data = await response.json();
 
-    // Optionally, handle token storage or redirect after successful login
-    // Example: localStorage.setItem('token', data.token);
-    // window.location.href = 'dashboard.html';
-} catch (err) {
-    console.error('Login error:', err);
-    document.getElementById('message').innerText = 'Login request failed.';
-}
+        // Display feedback from the server
+        document.getElementById('message').innerText = data.message || data.error;
+
+        // If login is successful, store token and redirect
+        if (response.ok && data.token) {
+            localStorage.setItem('token', data.token); // Store the token in localStorage
+            window.location.href = 'dashboard.html'; // Redirect to the dashboard page
+        }
+    } catch (err) {
+        console.error('Login error:', err);
+        document.getElementById('message').innerText = 'Login request failed.';
+    }
 });
