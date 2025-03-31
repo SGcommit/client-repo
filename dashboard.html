@@ -10,14 +10,14 @@
 <body>
     <div id="gui-div">
         <h1>Generate Encounter</h1>
-        <label for="party-level">Party Level:</label>
-        <input type="number" id="party-level" placeholder="Enter party level" required>
-        <br>
-        <label for="environment">Environment:</label>
-        <input type="text" id="environment" placeholder="e.g., forest, dungeon" required>
-        <br>
-        <label for="enemy-type">Enemy Type:</label>
-        <input type="text" id="enemy-type" placeholder="e.g., undead, dragons" required>
+        <div id="input-div">
+            <label for="party-level">Party Level:</label>
+            <input type="number" id="party-level" placeholder="Enter party level" required>
+            <label for="environment">Environment:</label>
+            <input type="text" id="environment" placeholder="e.g., forest, dungeon" required>
+            <label for="enemy-type">Enemy Type:</label>
+            <input type="text" id="enemy-type" placeholder="e.g., undead, dragons" required>
+        </div>
         <br>
         <input type="button" id="generate-btn" value="Generate Encounter">
         <p id="result-txt"></p>

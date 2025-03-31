@@ -31,6 +31,12 @@ body {
     grid-template-columns: 1fr;
 }
 
+#input-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
 #enemy-div {
     background-color: lightsalmon;
     margin-left: 80%;
@@ -88,9 +94,9 @@ input[type="text"]:focus {
 #logoutBtn {
     position: absolute;
     top: 20px;
-    right: 20px;
+    left: 20px;
     padding: 10px 15px;
-    background-color: #d9534f; /* Red button */
+    background-color: brown; /* Red button */
     color: white;
     border: none;
     border-radius: 5px;
