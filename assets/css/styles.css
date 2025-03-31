@@ -14,6 +14,43 @@ body {
 }
 
 #login-div {
+    width: 80%;
+    min-height: 100vh;
+    margin: 0px auto 0px auto;
+    background-color: peachpuff;
+}
+
+#index-info {
+    width: 80%;
+    margin: 0 auto 0 auto;
+
+}
+
+#auth-container {
+    background-color: darkred;
+    display: grid;
+    align-content:start;
+    grid-template-columns: 3fr 2fr 1fr;
+    padding-bottom: 10px;
+}
+
+#auth-container p {
+    position: relative;
+    color: peachpuff;
+    top: 75%;
+    margin: 0 0 0 0;
+}
+
+form {
+    margin-left: 5%;
+    justify-content: center;
+}
+
+form h2 {
+    color: peachpuff;
+}
+
+#login-div {
     background-color: peachpuff;
     margin-left: auto;
     margin-right: auto;
@@ -44,12 +81,17 @@ body {
     display: grid;
 }
 
+button {
+    background-color: brown;
+    color: peachpuff;
+}
+
 input[type="button"] {
     width: 200px;
     height: 50px;
 }
 
-input[type="text"]:focus {
+input:focus {
     outline: 0;
 }
 

@@ -8,27 +8,35 @@
   <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 <body>
+  <div id="login-div">
     <div id="auth-container">
-    <!-- Registration Form -->
-        <h2>Register</h2>
+        <!-- Registration Form -->
         <form id="register-form">
-        <input type="email" id="reg-email" placeholder="Email" required />
-        <input type="text" id="reg-firstName" placeholder="First Name" required />
-        <input type="password" id="reg-password" placeholder="Password" required />
-        <button type="submit" id="registerBtn">Register</button>
+          <h2>Register</h2>
+          <input type="email" id="reg-email" placeholder="Email" required />
+          <input type="text" id="reg-firstName" placeholder="First Name" required />
+          <input type="password" id="reg-password" placeholder="Password" required />
+          <button type="submit" id="registerBtn">Register</button>
         </form>
 
         <!-- Login Form -->
-        <h2>Login</h2>
         <form id="login-form">
-        <input type="email" id="login-email" placeholder="Email" required />
-        <input type="password" id="login-password" placeholder="Password" required />
-        <button type="submit" id="loginBtn">Login</button>
+          <h2>Login</h2>
+          <input type="email" id="login-email" placeholder="Email" required />
+          <input type="password" id="login-password" placeholder="Password" required />
+          <button type="submit" id="loginBtn">Login</button>
         </form>
 
         <!-- Message Display -->
         <p id="message"></p>
     </div>
+
+    <div id="index-info"> <!-- Insert information divs and chunks of text into here pls and ty -->
+      <h2>About The Encounter Generator</h2>
+      <p>Who up generating their encounter</p>
+    </div>
+
+  </div>
   <script src="./assets/js/main.js"></script>
 </body>
 </html>
