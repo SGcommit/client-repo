@@ -81,33 +81,39 @@ async function generateEncounter() {
         const enemyDiv = document.getElementById("enemy-div");
         enemyDiv.innerHTML = ""; // Clear any previous results
         
+        console.log(monsterDataArray);
         // For each monster, create a card with image, name, CR, HP, and AC
         monsterDataArray.forEach(dataJSON => {
-            let node = document.createElement("div");
-            let image = document.createElement("img");
-            let name = document.createElement("p");
-            let cr = document.createElement("p");
-            let hp = document.createElement("p");
-            let ac = document.createElement("p");
-            let stats = document.createElement("div");
-            
-            // Set the card content based on returned data
-            image.src = "https://www.dnd5eapi.co" + dataJSON["image"];
-            name.innerHTML = dataJSON["name"];
-            cr.innerHTML = "CR: " + dataJSON["challenge_rating"];
-            hp.innerHTML = "HP: " + dataJSON["hit_points"];
-            ac.innerHTML = "AC: " + getAC(dataJSON["armor_class"]);
-            
-            node.appendChild(image);
-            node.appendChild(name);
-            stats.appendChild(cr);
-            stats.appendChild(hp);
-            stats.appendChild(ac);
-            node.appendChild(stats);
-            
-            name.classList.add("enemy-title");
-            node.classList.add("enemy-card");
-            enemyDiv.appendChild(node);
+
+            if(dataJSON["error"] != undefined){
+                //I would put a continue here but I can't for some reason
+            } else {
+                let node = document.createElement("div");
+                let image = document.createElement("img");
+                let name = document.createElement("p");
+                let cr = document.createElement("p");
+                let hp = document.createElement("p");
+                let ac = document.createElement("p");
+                let stats = document.createElement("div");
+                
+                // Set the card content based on returned data
+                image.src = "https://www.dnd5eapi.co" + dataJSON["image"];
+                name.innerHTML = dataJSON["name"];
+                cr.innerHTML = "CR: " + dataJSON["challenge_rating"];
+                hp.innerHTML = "HP: " + dataJSON["hit_points"];
+                ac.innerHTML = "AC: " + getAC(dataJSON["armor_class"]);
+                
+                node.appendChild(image);
+                node.appendChild(name);
+                stats.appendChild(cr);
+                stats.appendChild(hp);
+                stats.appendChild(ac);
+                node.appendChild(stats);
+                
+                name.classList.add("enemy-title");
+                node.classList.add("enemy-card");
+                enemyDiv.appendChild(node);
+            }
         });
         
         resultTxt.innerHTML = "Encounter Generated Successfully!";
