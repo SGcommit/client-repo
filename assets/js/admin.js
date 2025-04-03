@@ -60,4 +60,33 @@ async function fetchAdminData() {
   }
 }
 
+async function deleteUser(userId, button) {
+  if (!confirm("Are you sure you want to delete this user?")) return;
+
+  try {
+    const response = await fetch(`${SERVER_PATH}/admin/users/${userId}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+      alert("User deleted successfully.");
+      // Remove row from table
+      const row = button.closest('tr');
+      row.remove();
+    } else {
+      alert("Error: " + data.message);
+    }
+  } catch (err) {
+    console.error("Failed to delete user:", err);
+    alert("Failed to delete user.");
+  }
+}
+
 fetchAdminData();
+
+
