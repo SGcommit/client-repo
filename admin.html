@@ -8,47 +8,49 @@
   <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-  <h1>Admin Dashboard</h1>
-  <p id="message"></p>
+  <div id="admin-div">
+    <h1>Admin Dashboard</h1>
+    <p id="message"></p>
 
-  <!-- Endpoint Stats -->
-  <section>
-    <h2>API Endpoint Stats</h2>
-    <table border="1">
-      <thead>
-        <tr>
-          <th>Method</th>
-          <th>Endpoint</th>
-          <th>Requests</th>
-        </tr>
-      </thead>
-      <tbody id="endpoint-stats">
-        <!-- Populated by admin.js -->
-      </tbody>
-    </table>
-  </section>
+    <!-- Endpoint Stats -->
+    <section>
+      <h2>API Endpoint Stats</h2>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Endpoint</th>
+            <th>Requests</th>
+          </tr>
+        </thead>
+        <tbody id="endpoint-stats">
+          <!-- Populated by admin.js -->
+        </tbody>
+      </table>
+    </section>
 
-  <!-- User Stats -->
-  <section>
-    <h2>User API Usage</h2>
-    <table border="1">
-      <thead>
-        <tr>
-          <th>First Name</th>
-          <th>Email</th>
-          <th>API Calls Remaining</th>
-          <th>Total Requests</th>
-        </tr>
-      </thead>
-      <tbody id="user-usage">
-        <!-- Populated by admin.js -->
-      </tbody>
-    </table>
-  </section>
+    <!-- User Stats -->
+    <section>
+      <h2>User API Usage</h2>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Email</th>
+            <th>API Calls Remaining</th>
+            <th>Total Requests</th>
+          </tr>
+        </thead>
+        <tbody id="user-usage">
+          <!-- Populated by admin.js -->
+        </tbody>
+      </table>
+    </section>
 
-  <button id="generate-encounter">Let's go generate some encounters!</button>
-  <button id="logout">Logout</button>
-
+    <br>
+    <button id="generate-encounter">Let's go generate some encounters!</button>
+    <button id="logout">Logout</button>
+  </div>
   <script src="assets/js/admin.js" defer></script>
 </body>
 </html>
