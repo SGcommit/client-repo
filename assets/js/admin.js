@@ -64,7 +64,7 @@ async function deleteUser(userId, button) {
   if (!confirm("Are you sure you want to delete this user?")) return;
 
   try {
-    const response = await fetch(`${SERVER_PATH}/admin/users/${userId}`, {
+    const response = await fetch(`${SERVER_PATH}/api/admin/users/${userId}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -72,15 +72,18 @@ async function deleteUser(userId, button) {
       }
     });
 
-    const data = await response.json();
+    const isJSON = response.headers.get("content-type")?.includes("application/json");
+
+    const data = isJSON ? await response.json() : null;
+
     if (response.ok) {
       alert("User deleted successfully.");
-      // Remove row from table
       const row = button.closest('tr');
       row.remove();
     } else {
-      alert("Error: " + data.message);
+      alert("Error: " + (data?.message || "Unexpected error."));
     }
+
   } catch (err) {
     console.error("Failed to delete user:", err);
     alert("Failed to delete user.");
