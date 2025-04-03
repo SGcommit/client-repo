@@ -95,10 +95,11 @@ async function generateEncounter() {
                 let hp = document.createElement("p");
                 let ac = document.createElement("p");
                 let stats = document.createElement("div");
-                let index = dataJSON["index"].replace("adult-","").replace("young-","");
+                let index = dataJSON["index"];
+                let imgIndex = dataJSON["index"].replace("adult-","").replace("young-","");
                 
                 // Set the card content based on returned data
-                image.src = `https://www.aidedd.org/dnd/images/${index}.jpg`;
+                image.src = `https://www.aidedd.org/dnd/images/${imgIndex}.jpg`;
                 image.style.height = "200px";
                 name.innerHTML = dataJSON["name"];
                 cr.innerHTML = "CR: " + dataJSON["challenge_rating"];
