@@ -41,6 +41,7 @@ async function fetchAdminData() {
     if (!usersRes.ok) throw new Error("Failed to fetch user stats");
     const users = await usersRes.json();
 
+    const userTable = document.getElementById('user-usage');
     users.forEach(user => {
       const row = document.createElement('tr');
       row.innerHTML = `
@@ -51,8 +52,7 @@ async function fetchAdminData() {
         <td><button onclick="deleteUser('${user.id}', this)">Delete</button></td>
       `;
       userTable.appendChild(row);
-    });
-    
+    });    
 
   } catch (err) {
     console.error('Admin dashboard error:', err);
