@@ -1,10 +1,28 @@
 // api.js: Updated client-side logic for encounter generation
 
 // Ensure only logged-in users can access the page
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
     const token = localStorage.getItem("token");
     if (!token) {
         window.location.href = "index.html";
+    }
+
+    try {
+        const usageRes = await fetch(`${SERVER_PATH}/user/usage`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        const usageData = await usageRes.json();
+    
+        if (usageRes.ok) {
+            document.getElementById("api-remaining").innerText = `API Calls Remaining: ${usageData.usage}`;
+        } else {
+            document.getElementById("api-remaining").innerText = usageData.message || "Could not load usage.";
+        }
+    } catch (err) {
+        console.error("Error loading API usage:", err);
+        document.getElementById("api-remaining").innerText = "Error fetching usage.";
     }
     
     // Logout functionality
