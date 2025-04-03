@@ -95,9 +95,11 @@ async function generateEncounter() {
                 let hp = document.createElement("p");
                 let ac = document.createElement("p");
                 let stats = document.createElement("div");
+                let index = dataJSON["index"].replace("adult-","").replace("young-","");
                 
                 // Set the card content based on returned data
-                image.src = "https://www.dnd5eapi.co" + dataJSON["image"];
+                image.src = `https://www.aidedd.org/dnd/images/${index}.jpg`;
+                image.style.height = "200px";
                 name.innerHTML = dataJSON["name"];
                 cr.innerHTML = "CR: " + dataJSON["challenge_rating"];
                 hp.innerHTML = "HP: " + dataJSON["hit_points"];
@@ -110,8 +112,7 @@ async function generateEncounter() {
                 stats.appendChild(ac);
                 node.appendChild(stats);
 
-                let index = dataJSON["index"].replace('-','_');
-                node.onclick = function(){ location.href = `https://dnd-wiki.org/wiki/${index}_(5e)` }
+                node.onclick = function(){ location.href = `https://www.aidedd.org/dnd/monstres.php?vo=${index}` }
 
                 name.classList.add("enemy-title");
                 node.classList.add("enemy-card");
