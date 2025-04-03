@@ -2,12 +2,16 @@ const SERVER_PATH = 'https://dandd-encounter-generator.onrender.com';
 const token = localStorage.getItem('token');
 
 if (!token) {
-  window.location.href = 'login.html';
+  window.location.href = 'index.html';
 }
 
 document.getElementById('logout').addEventListener('click', () => {
   localStorage.removeItem('token');
-  window.location.href = 'login.html';
+  window.location.href = 'index.html';
+});
+
+document.getElementById('generate-encounter').addEventListener('click', () => {
+  window.location.href = 'dashboard.html';
 });
 
 async function fetchAdminData() {
@@ -44,7 +48,7 @@ async function fetchAdminData() {
         <td>${user.first_name}</td>
         <td>${user.email}</td>
         <td>${user.api_calls_remaining ?? 'N/A'}</td>
-        <td>${user.token ?? '—'}</td>
+        <td>${user.request_count ?? 0}</td>
       `;
       userTable.appendChild(row);
     });
