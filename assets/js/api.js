@@ -31,6 +31,7 @@ async function generateEncounter() {
     
     // Retrieve party details from the inputs
     const partyLevel = document.getElementById("party-level").value;
+    const partySize = document.getElementById("party-size").value;
     const environment = document.getElementById("environment").value;
     const enemyType = document.getElementById("enemy-type").value;
     
@@ -40,7 +41,7 @@ async function generateEncounter() {
     }
     
     // Prepare the payload for the build-prompt endpoint
-    const promptPayload = { partyLevel, environment, enemyType };
+    const promptPayload = { partyLevel, environment, enemyType, partySize };
     
     try {
         // First, call the build-prompt endpoint to get monster indexes
