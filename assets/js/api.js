@@ -109,7 +109,10 @@ async function generateEncounter() {
                 stats.appendChild(hp);
                 stats.appendChild(ac);
                 node.appendChild(stats);
-                
+
+                let index = dataJSON["index"].replace('-','_');
+                node.onclick = function(){ location.href = `https://dnd-wiki.org/wiki/${index}_(5e)` }
+
                 name.classList.add("enemy-title");
                 node.classList.add("enemy-card");
                 enemyDiv.appendChild(node);
